@@ -4,11 +4,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const loadFavorites = () => {
   try {
     const saved = localStorage.getItem("favoriteCities");
-    return saved
-      ? JSON.parse(saved)
-      : ["Srinagar", "Bangaluru", "New Delhi", "Tokyo"];
+    return saved ? JSON.parse(saved) : ["London", "New York", "Tokyo"];
   } catch (error) {
-    return ["Srinagar", "Bangaluru", "New Delhi", "Tokyo"];
+    return ["London", "New York", "Tokyo"];
   }
 };
 

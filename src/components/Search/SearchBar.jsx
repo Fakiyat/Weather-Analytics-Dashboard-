@@ -3,7 +3,7 @@ import { Search, X } from "lucide-react";
 import { searchCities } from "../../services/weatherApi";
 import { useDispatch } from "react-redux";
 import { fetchWeather } from "../../redux/slices/weatherSlice";
-import { addFavorite } from "../../redux/slices/favoritesSlice";
+import { addFavorite } from "../../redux/slices/favouitesSlice";
 
 const SearchBar = ({ onClose }) => {
   const [query, setQuery] = useState("");
@@ -41,7 +41,7 @@ const SearchBar = ({ onClose }) => {
 
   return (
     <div className="relative">
-      <div className="flex items-center space-x-2 bg-white/20 rounded-xl p-3">
+      <div className="flex items-center space-x-2! glass-card p-3! rounded-xl">
         <Search className="w-5 h-5 text-white/70" />
         <input
           type="text"
@@ -57,7 +57,7 @@ const SearchBar = ({ onClose }) => {
               setQuery("");
               setSuggestions([]);
             }}
-            className="text-white/70 hover:text-white"
+            className="text-white/70 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -66,7 +66,7 @@ const SearchBar = ({ onClose }) => {
 
       {/* Suggestions Dropdown */}
       {(suggestions.length > 0 || loading) && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl overflow-hidden z-50">
+        <div className="absolute top-full! left-0 right-0! mt-2! bg-white rounded-xl shadow-2xl overflow-hidden z-9999 backdrop-blur-sm">
           {loading ? (
             <div className="p-4 text-center text-gray-500">Searching...</div>
           ) : (
@@ -75,9 +75,9 @@ const SearchBar = ({ onClose }) => {
                 <li key={index}>
                   <button
                     onClick={() => handleSelectCity(city.name)}
-                    className="w-full text-left px-4 py-3 hover:bg-gray-100 transition-colors flex items-center justify-between"
+                    className="w-full text-left px-4! py-3! hover:bg-blue-50 transition-colors flex items-center justify-between group"
                   >
-                    <span className="font-medium text-gray-800">
+                    <span className="font-medium text-gray-800 group-hover:text-blue-600">
                       {city.name}
                     </span>
                     <span className="text-sm text-gray-500">

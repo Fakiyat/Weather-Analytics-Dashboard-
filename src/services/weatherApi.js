@@ -1,11 +1,12 @@
 import axios from "axios";
 
 // Replace with your actual API key
-const API_KEY = import.meta.env.VITEWEATHER_API_KEY;
+const API_KEY =
+  import.meta.env.VITE_WEATHER_API_KEY || "91d1cb936f8682bef4adc123701c79bf";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 // Cache configuration
-const CACHE_DURATION = 60000; // 60 seconds
+const CACHE_DURATION = 100000; // 60 seconds
 const cache = new Map();
 
 // Check if cached data is still valid

@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./components/layout/Header";
 import Dashboard from "./components/Dashboard/Dashboard";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DetailedView from "./components/DetailedView/DetailedView";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     element: (
       <>
         <Header />
+        <DetailedView />
       </>
     ),
   },
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-8xl mx-auto">
+      <div className="  max-w-auto mx-auto">
         <RouterProvider router={router} />
       </div>
     </div>

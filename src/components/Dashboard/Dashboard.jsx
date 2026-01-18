@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWeather } from "../../redux/slices/weatherSlice";
 import CityCard from "./CityCard";
-import { needsRefresh } from "../../utils/helpers";
+
 import { AUTO_REFRESH_INTERVAL } from "../../utils/constants";
 import Loader from "../layout/Loader";
+import { needsRefresh } from "../../utils/helper";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -42,18 +43,18 @@ const Dashboard = () => {
 
   if (error) {
     return (
-      <div className="glass rounded-2xl p-8 text-center">
+      <div className="glass rounded-2xl p-8! text-center">
         <p className="text-red-400 text-lg">⚠️ {error}</p>
-        <p className="text-white/70 mt-2">Please try again later</p>
+        <p className="text-white/70 mt-2!">Please try again later</p>
       </div>
     );
   }
 
   if (favoriteCities.length === 0) {
     return (
-      <div className="glass rounded-2xl p-12 text-center">
-        <div className="text-6xl mb-4">🌍</div>
-        <h2 className="text-2xl font-bold text-white mb-2">No Cities Added</h2>
+      <div className="glass rounded-2xl p-12! text-center">
+        <div className="text-6xl mb-4!">🌍</div>
+        <h2 className="text-2xl font-bold text-white mb-2!">No Cities Added</h2>
         <p className="text-white/70">
           Use the search bar above to add your favorite cities!
         </p>
@@ -62,7 +63,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6!">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-white">Your Cities</h2>
         <div className="text-white/70 text-sm">
@@ -76,7 +77,7 @@ const Dashboard = () => {
 
           if (!weatherData) {
             return (
-              <div key={city} className="glass rounded-2xl p-6">
+              <div key={city} className="glass rounded-2xl p-6!">
                 <Loader size="small" message={`Loading ${city}...`} />
               </div>
             );
